@@ -22,8 +22,16 @@ const DUMMY_MEETUPS = [
     description: 'This is third meetup'
   }
 ]
-export default function Home() {
+export default function Home(props) {
   return (
-    <MeetupList meetups={DUMMY_MEETUPS}/>
+    <MeetupList meetups={props.meetups}/>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props:{
+      meetups: DUMMY_MEETUPS
+    }
+  }
 }
