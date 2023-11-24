@@ -9,7 +9,10 @@ const Developers=()=>{
     const router = useRouter();
     const devId = router.query.devId;
     return(
-        <h1>developers</h1>
+        <>
+            {details[devId-1] && <h1>{details[devId-1].name} - {details[devId-1].role}</h1>}
+            {!details[devId-1] && <h1>Developer doesn't exists</h1>}
+        </>
     )
 }
 export default Developers
